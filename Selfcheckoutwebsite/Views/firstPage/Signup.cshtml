@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Signup";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+      /*sign up container */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            aspect-ratio:1/2;
+            flex-grow:inherit;
+            margin:auto;
+        }
+        .signup-box {
+            background-color: #f2f2f2;
+            padding: 5px 39px;
+            border-radius: 0px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        /*heading*/
+            .signup-box h2 {
+                color: #333;
+                margin-bottom: 10px;
+            }
+            /*form*/
+            .signup-box form {
+                display: flex;
+                flex-direction: column;
+            }
+            /*inserting values*/
+            .signup-box input {
+                margin: 8px 0;
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+            }
+            /*box text*/
+            .signup-box p {
+                color: gray;
+                z-index: 0.4;
+                text-align: center;
+            }
+            /*button*/
+            .signup-box button {
+                padding: 13px 23px;
+                background-color: purple;
+                color: white;
+                border: none;
+                border-radius: 42px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                margin: 37px 8px;
+            }
+            /*color of button changes by hovering*/
+                .signup-box button:hover {
+                    background-color: rgb(74, 2, 74);
+                }
+    .signup-box img {
+        width: 14%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: auto;
+        display: block;
+    }
+</style>
+<div class="container">
+    <div class="signup-box">
+        <h2>Sign Up</h2>
+        <form action="Signup" method="post">
+            <p>Create account</p>
+            <img src="~/img/Signup.png" alt="no-img">
+            <input type="text" placeholder="Full Name" name="Full_Name"> @*this is the name=fullname used in the firstpagecontroller*@
+            <input type="email" placeholder="Email" name="Email"> @*this is the name=Email used in the firstpagecontroller*@
+            <input type="password" placeholder="Password" name="Password"> @*this is the name=Password used in the firstpagecontroller*@
+            @*<button type="submit">Sign Up</button>*@
+            <a href="@Url.Action("Signup", "FirstPage")">
+                <button type="submit" onclick="addToCart()">Sign Up</button>
+            </a>
+        </form>
+    </div>
+</div>
+<script>
+        function addToCart() {
+            alert('Registration Successful!');
+    }
+</script>

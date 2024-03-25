@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Self-Checkout | MySelf-Checkout.com</title>
+        @*<link rel="stylesheet" href="~/css/firstpage.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/Start.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/Signup.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/About.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/Cart.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/Contactus.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/Continuecheckout.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/Bill.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/EachProduct.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/EnterBarcode.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/Services.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/OnlinePayment.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/ScanEnter.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/ScanBarcode.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/SignLogView.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/OnlineCashPay.css" asp-append-version="true" />*@
+
+<style>
+    /* CSS Reset */
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    /* smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* CSS Variables */
+    :root {
+        --navbae-height: 59px;
+    }
+    /* Navigation Bar */
+    #navbar {
+        display: flex;
+        align-items: center;
+        position: relative;
+        top: 0px;
+    }
+    /* Navigation Bar: logo and image  */
+    #logo {
+        height: 56px;
+        margin: 34px 45px;
+    }
+
+        #logo img {
+            height: 82px;
+            margin: -13px -31px;
+        }
+    /* Navigation Bar: list styling */
+    #navbar ul {
+        display: flex;
+    }
+
+    #navbar::before {
+        content: "";
+        background-color: black;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        opacity: 0.7;
+    }
+
+    #navbar ul li {
+        /* display: flex; */
+        list-style: none;
+        font-size: 1.3rem;
+    }
+
+        #navbar ul li a {
+            color: black;
+            display: block;
+            padding: 3px 22px;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+
+            #navbar ul li a:hover {
+                color: black;
+                background-color: white;
+            }
+
+
+    /*Css for icon cart*/
+
+
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+
+    }
+
+    nav {
+        background-color: #333;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .cart-icon {
+        font-size: 24px;
+        color: black;
+        text-decoration: none;
+    }
+
+        .cart-icon:hover {
+            background: white;
+        }
+
+    /* Your existing CSS styles remain the same */
+    /* Add your styles here */
+    #camera-container {
+        width: 400px;
+        height: 300px;
+        border: 2px solid #000;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        justify-content: center;
+    }
+
+    #camera-stream {
+        width: 100%;
+        height: 67%;
+        border: 2px solid #9c0415;
+        border-radius: 23px;
+    }
+
+    #button-container {
+        width: 100%;
+        display: flex;
+    }
+
+    button {
+        padding: 10px 20px;
+        cursor: pointer;
+        color: white;
+        background-color: purple;
+        border-radius: 23px;
+        margin: 20px 20px;
+    }
+
+        button:hover {
+            background-color: rgb(83, 2, 83);
+        }
+
+    #camera-container h1 {
+        font-size: 2rem;
+        padding: 23px;
+        margin: -19px;
+    }
+    footer {
+        color: white;
+        text-align: center;
+        background-color: black;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        padding: 10px;
+    }
+
+</style>
+
+</head>
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            @*<img src="~/img/BarcodeReader.png" alt="Self Checkout Logo Png" />*@
+            <img src="~/img/Untitled design.png" />
+            
+        </div>
+        <!-- ordered list -->
+        <ul>
+            <!-- li.item{<a></a>}*5 -->
+            <li class="item"><a href="@Url.Action("Start", "FirstPage")">Home</a></li>
+            <li class="item"><a href="@Url.Action("about", "FirstPage")">About</a></li>
+            <li class="item"><a href="@Url.Action("Contactus", "FirstPage")">Contact Us</a></li>
+            <li class="item"><a href="@Url.Action("Services", "FirstPage")">Services</a></li>
+            <nav>
+                @*<span>.</span>*@
+                <a href="@Url.Action("Cart", "FirstPage")" class="cart-icon">&#128722;</a>
+            </nav>
+        </ul>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        <div class="footer">
+            Copyright &copy;www.MySelfCheckout.com. All rights reserved
+        </div>
+    </footer>
+
+    <!-- Include QuaggaJS library -->
+    <script src="https://cdn.jsdelivr.net/npm/quagga@0.12.1/dist/quagga.min.js"></script>
+    <script src="~/Scripts/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/Scripts/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

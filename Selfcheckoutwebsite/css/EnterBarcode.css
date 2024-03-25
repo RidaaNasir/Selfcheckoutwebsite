@@ -1,0 +1,41 @@
+﻿/* box */
+.box {
+    border: 1px solid #ccc;
+    padding: 30px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 25px 400px;
+}
+
+input {
+    width: 100%;
+    padding: 9px;
+    margin-bottom: 10px;
+    border: 1px solid #130d0d;
+    border-radius: 10px;
+}
+
+button {
+    padding: 10px 52px;
+    border: 2px solid white;
+    background-color: rgb(147, 38, 147);
+    color: white;
+    margin: 17px;
+    font-size: 1rem;
+    border-radius: 35px;
+    cursor: pointer;
+}
+
+    button:hover {
+        background-color: rgb(74, 2, 74);
+    }
+
+.box img {
+    padding: 23px 23px;
+    height: 100%;
+    width: 50%;
+}
+
+
+</style >

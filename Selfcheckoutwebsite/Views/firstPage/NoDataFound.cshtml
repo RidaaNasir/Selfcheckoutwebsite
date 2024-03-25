@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "NoDataFound";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    h1{
+        text-align:center;
+        margin:30px;
+    }
+    #button {
+        padding: 17px 161px;
+        border: 2px solid white;
+        background-color: purple;
+        color: white;
+        margin: 31px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        border-radius: 39px;
+    }
+    #home button:hover {
+        background-color: rgb(74, 2, 74);
+    }
+    .Wrongbar p {
+        background-color: #959090;
+        color: black;
+        text-align: center;
+        margin: auto;
+        width: 44%;
+        font-size: 1.8rem;
+        border-radius: 17px;
+        margin: 80px;
+        margin: 23px 430px;
+    }
+    
+</style>
+
+
+<h1>Wrong Barcode</h1>
+<div class="Wrongbar">
+    <p>Barcode does not exist. Please check the barcode and try again.</p>
+</div>
+
+@*<button id="button"@Html.ActionLink("Go back to ScanEnter", "ScanEnter", "FirstPage")</button>*@
+
+<a href="@Url.Action("ScanEnter", "FirstPage")">
+    <button id="button">Go Back</button>
+</a>

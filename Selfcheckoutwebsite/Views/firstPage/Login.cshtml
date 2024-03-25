@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+
+    /* login body */
+    /* body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+} */
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 83vh;
+    }
+
+    .login-box {
+        padding: 0px 3px;
+        background-color: #f0f0f0;
+        color: white;
+        border: none;
+        border-radius: 38px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin: 33px;
+        width: 30%;
+    }
+
+        .login-box p {
+            color: gray;
+            z-index: .4;
+            text-align: center;
+        }
+
+        .login-box h2 {
+            color: #333;
+            margin-bottom: -2px;
+            text-align: center;
+        }
+
+        .login-box form {
+            /* display: flex;
+  flex-direction: column; */
+            display: flex;
+            flex-direction: column;
+            padding: 14px 21px;
+            /* top: 50%;
+    bottom: 50%; */
+        }
+
+        .login-box input {
+            /*margin: 14px 59px;
+            padding: 11px;
+            border: none;
+            border-radius: 9px;*/
+            margin: 10px 2px;
+            padding: 11px 16px;
+            border: none;
+            border-radius: 19px;
+        }
+
+        .login-box button {
+            padding: 12px 43px;
+            background-color: purple;
+            color: white;
+            border: none;
+            border-radius: 43px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 57px;
+        }
+
+            .login-box button:hover {
+                background-color: rgb(48, 3, 48);
+            }
+
+    footer {
+        background-color: black;
+        color: white;
+        padding: 9px 20px;
+    }
+    /* .login-box img{
+  width: 30%;
+  height: 5%;
+  margin: auto;
+  display: block;
+} */
+    .login-box img {
+        width: 14%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: auto;
+        display: block;
+    }
+
+
+
+</style>
+
+<div class="container">
+    <div class="login-box">
+        <h2> Welcome back!</h2>
+        <form action="Login" method="post">
+            <img src="~/img/Login.png" alt="no-img">
+            <h2>Login</h2>
+            <p>Login in to your acc</p>
+            <input type="text" placeholder="Username" name="Email">
+            <input type="password" placeholder="Password" name="Password">
+            <a href="@Url.Action("Login", "FirstPage")">
+                <button type="submit">Log In</button>
+            </a>
+        </form>
+    </div>
+</div>
+

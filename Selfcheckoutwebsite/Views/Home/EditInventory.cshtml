@@ -1,0 +1,145 @@
+﻿@model Selfcheckoutwebsite.Models.Makeproducts
+@{
+    ViewBag.Title = "EditInventory";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+
+
+<head>
+    <style>
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        /* Container for the form */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header styling */
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 24px;
+        }
+
+        /* Form styling */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        /* Button styling */
+        .btn-primary {
+            background-color: #0074cc; /* Match header color */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-default {
+            background-color: #ccc;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Styling for table */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        thead {
+            background-color: #0074cc; /* Match header color */
+            color: #fff;
+        }
+
+        th {
+            font-weight: bold;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tbody tr:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+
+<div class="container">
+    <h1>Edit Inventory</h1>
+
+    @* This line begins the HTML form using the Html.BeginForm() helper method. It's a Razor syntax for creating an HTML form tag. The form will submit to the same action that rendered the view. *@
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        //The next few lines create form fields for editing the client information.
+        //For each property of the model (presumably a client model), it creates a
+        //form group with a label and a text input. The @Html.LabelFor generates a
+        //label for the corresponding model property, and @Html.TextBoxFor generates a text input for that property.
+        <div class="form-group">
+            @Html.LabelFor(model => model.Item_Code)
+            @Html.TextBoxFor(model => model.Item_Code, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product_Name)
+            @Html.TextBoxFor(model => model.Product_Name, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Quantity)
+            @Html.TextBoxFor(model => model.Quantity, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Unit_Price)
+            @Html.TextBoxFor(model => model.Unit_Price, new { @class = "form-control" })
+        </div>
+        //there's a form group containing a submit button and a link to navigate back to the list of clients.
+        //The submit button has the class "btn btn-primary" for styling, and the link has the class "btn btn-default".
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            @Html.ActionLink("Back to List", "Inventory", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>
+
+

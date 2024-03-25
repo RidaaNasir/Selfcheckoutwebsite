@@ -1,0 +1,199 @@
+﻿
+@{
+    ViewBag.Title = "ScanEnter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* CSS Reset */
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    /* smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* CSS Variables */
+    :root {
+        --navbae-height: 59px;
+    }
+    /* Navigation Bar */
+    #navbar {
+        display: flex;
+        align-items: center;
+        position: relative;
+        top: 0px;
+    }
+    /* Navigation Bar: logo and image  */
+    #logo {
+        height: 56px;
+        margin: 34px 45px;
+    }
+
+        #logo img {
+            height: 82px;
+            margin: -13px -31px;
+        }
+    /* Navigation Bar: list styling */
+    #navbar ul {
+        display: flex;
+    }
+
+    #navbar::before {
+        content: "";
+        background-color: black;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        opacity: 0.7;
+    }
+
+    #navbar ul li {
+        /* display: flex; */
+        list-style: none;
+        font-size: 1.3rem;
+    }
+
+        #navbar ul li a {
+            color: black;
+            display: block;
+            padding: 3px 22px;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+
+            #navbar ul li a:hover {
+                color: black;
+                background-color: white;
+            }
+
+    /* HOME SECTION */
+    #home {
+        display: flex;
+        flex-direction: column;
+        padding: 54px 200px;
+        height: 300px;
+        justify-content: center;
+        align-items: center;
+    }
+
+        #home::before {
+            content: "";
+            background-color: white;
+            position: absolute;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            z-index: -1;
+            opacity: 0.77;
+        }
+
+        #home h2 {
+            color: black;
+            text-align: center;
+        }
+
+        #home p {
+            color: black;
+            text-align: center;
+            font: 4rem;
+            font-family: 'Times New Roman', Times, serif
+        }
+
+    .container {
+        display: flex;
+    }
+
+    #home h2 {
+        font-size: 2.8rem;
+        padding: 22px;
+    }
+
+    #home p {
+        font-size: 1.5rem;
+    }
+
+    #home p1 {
+        font-size: 1.36rem;
+        background-color: gray;
+        font-style: italic;
+    }
+
+    footer {
+        background-color: black;
+        color: white;
+        padding: 9px 20px;
+    }
+    /* Utility Classes */
+    .h-primary {
+        font-size: 2.8rem;
+        padding: 33px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    .btn {
+        padding: 14px 120px;
+        border: 2px solid white;
+        background-color: rgb(147, 38, 147);
+        color: white;
+        margin: 23px;
+        font-size: 1rem;
+        border-radius: 44px;
+        cursor: pointer;
+    }
+
+    #home .btn :hover {
+        color: brown;
+    }
+
+    .btn1 {
+        padding: 10px 96px;
+        border: 2px solid white;
+        background-color: rgb(147, 38, 147);
+        color: white;
+        margin: 17px;
+        font-size: 1rem;
+        border-radius: 10px;
+        /* cursor: pointer; */
+
+        padding: 14px 120px;
+        border: 2px solid white;
+        background-color: rgb(147, 38, 147);
+        color: white;
+        margin: 23px;
+        font-size: 1rem;
+        border-radius: 44px;
+        cursor: pointer;
+    }
+
+    #home .btn:hover {
+        background-color: rgb(74, 2, 74);
+    }
+
+    #home .btn1:hover {
+        background-color: rgb(74, 2, 74);
+    }
+
+</style>
+
+<!-- body -->
+<section id="home">
+    <h2>Select</h2>
+    <p1>please select to start purchasing</p1>
+    
+    <a href="@Url.Action("ScanBarcode", "FirstPage")">
+        <button class="btn">Scan Barcode</button>
+    </a>
+    <p2>or</p2>
+    
+    <a href="@Url.Action("EnterBarcode", "FirstPage")">
+        <button class="btn1">Enter Barcode</button>
+    </a>
+</section>
+

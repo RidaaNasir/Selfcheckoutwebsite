@@ -1,0 +1,152 @@
+﻿
+@{
+    ViewBag.Title = "Onlinepayment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+        /*body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }*/
+
+        .payment-form {
+            padding: 9px 69px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            width: 390px;
+            height: 475px; 
+            margin: 2px 57px;
+            justify-content: center;
+            margin: auto;
+        }
+
+            .payment-form img {
+                width: 20%;
+                margin: auto;
+                display: block;
+            }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+
+            .form-group input {
+                width: 81%;
+                padding: 3px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .form-group select {
+                width: 83%;
+                padding: 3px;
+                border: 1px solid #ccc;
+                border-radius: 7px;
+            }
+
+        .payment-buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+            .payment-buttons button {
+                padding: 10px 20px;
+                margin: 0 10px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+        #confirm {
+            background-color: purple;
+            color: #fff;
+            border-radius: 50px;
+        }
+
+            #confirm:hover {
+                background-color: rgb(76, 2, 76);
+            }
+
+        #cancel {
+            background-color: purple;
+            color: #fff;
+            border-radius: 50px;
+        }
+
+            #cancel:hover {
+                background-color: rgb(76, 2, 76);
+            }
+    </style>
+
+<!-- online -->
+<div class="payment-form">
+    <h1>Card Payment</h1>
+    <img src="img/Online-Payment.png" alt="no-img">
+
+    <div class="form-group">
+        <label for="amount">Amount</label>
+        @*<input type="text" id="amount" name="amount" placeholder="Enter amount">*@
+    </div>
+
+    <h2>Card Information</h2>
+
+    <div class="form-group">
+        <label for="bank">Bank</label>
+        <select id="bank" name="bank">
+            <option value="Bank1">Kuwait International Bank (KIB)</option>
+            <option value="Bank2">Kuwait Finance House(KFH)</option>
+            <option value="Bank3">Gulf Bank</option>
+            <option value="Bank4">Al Ahli Bank</option>
+            <option value="Bank5">Burgan Bank</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="card-number">Card Number</label>
+        <input type="text" id="card-number" name="card-number" placeholder="Enter card number">
+    </div>
+
+    <div class="form-group">
+        <label for="expiry-date">Expiry Date</label>
+        <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY">
+    </div>
+
+    <div class="form-group">
+        <label for="pin">PIN</label>
+        <input type="password" id="pin" name="pin" placeholder="Enter PIN">
+    </div>
+
+    <div class="payment-buttons">
+        @*<button id="confirm">Confirm</button>*@
+        <a href="@Url.Action("PayWithOnline", "FirstPage")">
+            *@*When the confirm button clicked it will take me to the bill page with Online Payment heading*@
+            <button id="confirm">Confirm</button>
+        </a>
+        @*<button id="cancel">Cancel</button>*@
+        <a href="@Url.Action("Cart", "FirstPage")">
+            <button id="cancel">Cancel</button>
+        </a>
+
+        
+
+    </div>
+</div>
+
+
+

@@ -1,0 +1,159 @@
+﻿
+@{
+    ViewBag.Title = "Services";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* CSS Reset */
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    /* smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* CSS Variables */
+    :root {
+        --navbae-height: 59px;
+    }
+    /* Navigation Bar */
+    #navbar {
+        display: flex;
+        align-items: center;
+        position: relative;
+        top: 0px;
+    }
+    /* Navigation Bar: logo and image  */
+    #logo {
+        height: 56px;
+        margin: 34px 45px;
+    }
+
+        #logo img {
+            height: 82px;
+            margin: -13px -31px;
+        }
+    /* Navigation Bar: list styling */
+    #navbar ul {
+        display: flex;
+    }
+
+    #navbar::before {
+        content: "";
+        background-color: black;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        opacity: 0.7;
+    }
+
+    #navbar ul li {
+        /* display: flex; */
+        list-style: none;
+        font-size: 1.3rem;
+    }
+
+        #navbar ul li a {
+            color: black;
+            display: block;
+            padding: 3px 22px;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+
+            #navbar ul li a:hover {
+                color: black;
+                background-color: white;
+            }
+
+
+    /* services */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
+
+    #services {
+        margin: 34px;
+        display: flex;
+    }
+
+        #services .box {
+            border: 5px solid rgb(0, 0, 0);
+            padding: 0px 1px;
+            margin: -21px 14px;
+            border-radius: 30px;
+            background: #8b728f;
+        }
+
+            #services.box img {
+                margin: auto;
+                /* height: 200px; */
+                display: block;
+                width: 20%;
+            }
+
+    .box img {
+        display: block;
+        margin: auto;
+        width: 30%;
+    }
+
+    #services.box p {
+        font-size: 2.3rem;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .h-secondary {
+        font-size: 2rem;
+        padding: 3px;
+        text-align: center;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        margin: 10px;
+    }
+    /* services center */
+    .center {
+        text-align: center;
+    }
+
+    .h-primary {
+        font-size: 3rem;
+        padding: 12px;
+        display: block;
+        margin: auto;
+    }
+</style>
+
+<!-- services -->
+<section id="services-container">
+    <h1 class="h-primary center">Our Services</h1>
+    <div id="services">
+        <div class="box">
+            <img src="img/pngwing.com (4).png" alt="">
+            <h2 class="h-secondary">Scan and Go Convenience</h2>
+            <p class="center">
+                Say goodbye to long lines and waiting at the checkout counter.
+                With our self-checkout mobile app, you can scan product barcodes as you shop.
+                It's as simple as pointing your phone's camera at the barcode,
+                and the app will instantly add the item to your virtual cart.
+            </p>
+        </div>
+        <div class="box">
+            <img src="img/pngwing.com (5).png" alt="">
+            <h2 class="h-secondary">Effortless Checkout:</h2>
+            <p class="center">
+                No more fumbling with items, carts, or baskets at the checkout counter.
+                Once you've finished shopping, review your cart directly within the app and proceed to checkout with
+                just a few taps. It's a frictionless experience designed to save you time.
+            </p>
+    </div>
+</section>
+

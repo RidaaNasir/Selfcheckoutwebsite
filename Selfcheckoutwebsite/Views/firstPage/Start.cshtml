@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "Start";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* HOME SECTION */
+    #home {
+        display: flex;
+        flex-direction: column;
+        padding: 33px 183px;
+        height: 347px;
+        justify-content: center;
+        align-items: center;
+    }
+    /*thead background picture*/ 
+        #home::before {
+            content: "";
+            background-color: white;
+            position: absolute;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            z-index: -1;
+            opacity: 0.78;
+            background-image: url("/img/grocery shop.jpg");
+            background-size: 100%;
+        }
+        /*heading*/
+        #home h1 {
+            color: white;
+            text-align: center;
+            padding: 6px 47px;
+        }
+        /*heading paragraph*/
+        #home p {
+            color: white;
+            text-align: center;
+            font-size: 30px;
+            font-size: 23px;
+            background-color: #343434d6;
+        }
+
+    /* Utility Classes */
+    .h-primary {
+        font-size: 2.8rem;
+        padding: 33px;
+    }
+    /*button style*/
+    #button {
+        padding: 17px 161px;
+        border: 2px solid white;
+        background-color: purple;
+        color: white;
+        margin: 31px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        border-radius: 39px;
+        /*margin: 23px 430px;*/
+    }
+
+    #button :hover {
+     color: mediumpurple;
+     }
+
+    #home img {
+        height: 55%;
+        padding: 0px 1px;
+        height: 54%;
+        width: 15%;
+    }
+    #home button:hover {
+        background-color: rgb(74, 2, 74);
+    }
+    
+</style>
+
+<p></p>
+<!-- body -->
+<section id="home">
+    <h1 class="h-primary">Welcome to Self-Checkout</h1>
+    <br />
+    <p>Say Goodbye to long queues and waiting timesWith Self-Checkout you can breeze  </p>
+    <br />
+    <p> through your shopping, scan items and complete your purchase in a fraction of time</p>
+    
+    @*redirecting by clicking the button to next page*@
+    <a href="@Url.Action("SignlogView", "FirstPage")">
+        <button id="button">Get started</button>
+    </a>
+</section>
+
+
+
+

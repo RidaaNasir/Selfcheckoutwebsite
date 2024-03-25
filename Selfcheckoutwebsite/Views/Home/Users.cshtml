@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "Users";
+    Layout = "../Shared/View.cshtml";
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+
+    .admin-panel {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .login-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    thead {
+        background-color: purple;
+        color: #fff;
+    }
+
+    th {
+        font-weight: bold;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tbody tr:hover {
+        background-color: #ddd;
+    }
+
+    .action-button {
+        background-color: purple;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+        .action-button:hover {
+            background-color: purple;
+        }
+</style>
+
+
+<div class="admin-panel">
+    <h1>Login Management</h1>
+    <table class="login-table">
+        <body>
+            <div class="admin-panel">
+                <h1>Clients List</h1>
+                <table class="client-table">
+                    <thead>
+                        <tr>
+                            <th>Client ID</th> @*Column Heading*@
+                            <th>Full Name</th>@*Column Heading*@
+                            <th>Email</th>@*Column Heading*@
+                            <th>Password</th>@*Column Heading*@
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var client in Model) //we use loop to see the record in the database , client is the variable which will take us to the users action in the model Client master
+                        {
+                            <tr>
+                                <td>@client.Client_Id</td> @*client is the data from the database through the C# Controller in the backend action basically 'client' is the variable where the whole data is saving and client_id is the frontend *@
+                                <td>@client.Full_Name</td> @*Full_Name is the table column names to store the data accordingly *@
+                                <td>@client.Email</td>
+                                <td>@client.Password</td>
+                                <td>
+                                    <a href="@Url.Action("EditClient", "Home", new { id = client.Client_Id })" class="action-button">Edit</a> @*edit button infront of every user*@
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </body>
+    </table>
+</div>
+

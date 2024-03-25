@@ -1,0 +1,160 @@
+﻿
+@{
+    ViewBag.Title = "Scan Barcode";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    #camera-container {
+        width: 400px;
+        height: 300px;
+        border: 2px solid #000;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        justify-content: center;
+        margin:auto;
+    }
+
+    #camera-stream {
+        width: 100%;
+        height: 67%;
+        border: 2px solid #9c0415;
+        border-radius: 23px;
+    }
+
+    #button-container {
+        width: 100%;
+        display: flex;
+    }
+
+    button {
+        padding: 10px 20px;
+        cursor: pointer;
+        color: white;
+        background-color: purple;
+        border-radius: 23px;
+        margin: 20px 20px;
+    }
+
+        button:hover {
+            background-color: rgb(83, 2, 83);
+        }
+
+    #camera-container h1 {
+        font-size: 2rem;
+        padding: 23px;
+        margin: -19px;
+    }
+</style>
+<div>
+    <form action="/FirstPage/ScanView" method="Post">@*when button clicked , it will take me to the first page controller and on the Scan View class *@
+        <div id="camera-container">
+            <h1>Scan Barcode</h1>
+            @*<img src="../img/addcart.png" alt="noimg">*@
+            @*this is the 'itemcode' we are inserting inside through the camera, this this take us to the item code whcih is inside the model class 'searchproducts' *@
+            <input type="number" name="Item_Code" id="barcodereader" /> <!-- Added an id for the input --> @*the ''item code'' we are getting from the user connected with the model*@
+            <video id="camera-stream" autoplay></video>
+            <div id="button-container">
+                @*<button id="cancel-button">Cancel</button>*@
+                <a href="@Url.Action("ScanEnter", "FirstPage")">
+                    <button id="cancel-button">Cancel</button>
+                </a>
+                <button id="done-button" type="submit">Done</button> @*when the button is clicked *@
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<script>
+        const cameraStream = document.getElementById('camera-stream'); /*initiallizing the 'camera-stream', div id */
+        const cancelButton = document.getElementById('cancel-button');/*initiallizing the 'Cancel-button' */
+        const doneButton = document.getElementById('done-button');/*initiallizing the 'done-button' */
+        const barcodeReaderInput = document.getElementById('barcodereader'); /*initiallizing the 'Barcode-reader' */
+        let isScanning = false; // Initialize a variable to track whether the barcode scanner is currently active
+
+    function toggleScanner() /*toggle the scanner on and off using QUAGGAJS library*/
+    {
+        if (!isScanning) /*If not scanning, starts the Quagga barcode scanner; otherwise, stops it.*/
+        {
+                Quagga.start();
+            } else {
+                Quagga.stop();
+            }
+            isScanning = !isScanning;
+        }
+
+        /* Defines a function handleBarcodeDetection(result) to handle the detection of a barcode by the Quagga library.*/
+        function handleBarcodeDetection(result) {
+            console.log('Scanned barcode:', result.codeResult.code); /*Logs the scanned barcode to the console.*/
+            barcodeReaderInput.value = result.codeResult.code; // Sets the value of the barcodeReaderInput field to the scanned barcode.
+            toggleScanner(); // Toggle off the scanner after a successful scan
+        }
+
+       /*main function to scan the barcode*/ 
+        function openCamera() {
+            navigator.mediaDevices.getUserMedia({ video: true }) // Request access to the user's camera, It's asking the browser for permission to use the user's camera
+                .then(function (stream) //If the camera access is granted, the code inside the then block will be executed. The stream parameter represents the video stream from the camera.
+                {
+                    cameraStream.srcObject = stream; // Set the camera stream as the source for the video element
+                    Quagga.init({ //Initializes the Quagga barcode scanner library. Specifies settings like the input stream(LiveStream from the camera) and the target element(cameraStream).
+                        inputStream: {
+                            name: "Live",
+                            type: "LiveStream",
+                            target: cameraStream,
+                        },
+                        decoder: {
+                            readers: ["ean_reader"], // Use the EAN barcode reader
+                        },
+                    }, function (err) { //Checks for any errors during initialization. If there's an error, it logs an error message to the console and exits the function.
+                        if (err) {
+                            console.error("Error initializing QuaggaJS:", err);
+                            return;
+                        }
+                        toggleScanner(); //If initialization is successful, it calls the toggleScanner() function, likely starting the barcode scanner.
+                    });
+
+                    Quagga.onDetected(handleBarcodeDetection); //Sets up an event listener for when a barcode is detected. Calls the handleBarcodeDetection function to process the detected barcode.
+                })
+                .catch(function (error) {
+                    console.error('Error accessing the camera:', error);
+                });
+        }
+
+        // Event listener for input changes
+    barcodeReaderInput.addEventListener('input', function () //Adds an event listener to the barcodeReaderInput field for changes in its value.
+    { //If the input value becomes empty, stops the Quagga scanner, sets isScanning to false, and reopens the camera and scanner.
+            if (barcodeReaderInput.value === '') {
+                Quagga.stop(); // Stop the scanner
+                isScanning = false;
+                openCamera(); // Reopen the camera and scanner to initiate scanning again
+            }
+        });
+
+        // Event listener for backspace key
+        barcodeReaderInput.addEventListener('keydown', function (event) {
+            if (event.key === 'Backspace') {
+                toggleScanner(); // Start scanning when the backspace key is pressed
+            }
+        });
+
+        //Sets an event listener for the window.onload event. Calls the openCamera() function when the window has finished loading to initiate the camera and scanner.
+        window.onload = () => {
+            openCamera();
+        };
+        //Adds an event listener to the cancelButton element for the 'click' event. Checks if the camera stream is active(cameraStream.srcObject is not null), stops all tracks, and sets the camera stream to null.
+        cancelButton.addEventListener('click', () => {
+            if (cameraStream.srcObject) {
+                cameraStream.srcObject.getTracks().forEach(track => track.stop());
+                cameraStream.srcObject = null;
+                /*window.location.href = "/FirstPage/ScanEnter"*/
+            }
+        });
+    
+    //Adds an event listener to the doneButton element for the 'click' event. Logs a message to the console indicating that the image is either captured or processing.
+        doneButton.addEventListener('click', () => {
+            console.log('Image captured or processing...');
+        });
+</script>

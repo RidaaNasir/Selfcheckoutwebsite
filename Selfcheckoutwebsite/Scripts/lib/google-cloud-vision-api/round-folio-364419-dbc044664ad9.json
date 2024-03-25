@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "round-folio-364419",
+  "private_key_id": "dbc044664ad9572296db71965870ce8f6046ff9b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCwZ5P8pzsj5hH2\nDTvLlcm+zM5hQYFvc5C87+KdQhHDS8o18A8zPtAmbgAqTK24BJZ96Vcd+aVqLNnT\nP0ReX3LtcsLZOhduaIxnmxcQiaeFZmDSkPhjy9tRKog8UHrl3PDs4uXdJ1g/0D9g\nZwP+aLLZZjO6+yXGZImKK95SN/nzKNa22SJzON++KHCKmFDo1nUI3XwiX2/NVj9h\n1v7LpQYbrkZPOdGQCjC/0bEAszbDUWtuPHZpgx1C/pjgtZRDjwrGe8HmxEs4erVH\n0mXjT6/AgKM+8W88gE2/Mvb3n6U4xziRL4IMj9vsfxL8CCiquTYwrOoLDt/vOcWW\nCVBDwSu3AgMBAAECggEABzEx52sqDhyjPtTrSzGgOBdBktWI4XJkxE9DfgXjk4LT\ni79t3zkAY5C4kQDvVEFboWaSFrbG9708ZFCACRj7JpM3PoQP0ICSuOap2hLCsb2q\n1Or0NZ1qI7UIOO1PFXAcoovds1aXUoK7EsMgdo7uO87e7RCwSZZvxSJkvhVqK2+9\ne6SLbZ5WGA6wTwyQ8cM1XrKCmvRffTt+9vA7sl2+wIPglP83uXpvTeTpJh2cR80g\n7FiRn8Qjj1eKGE4AmOW80M2aYjL1NpBfzK4RbVNXdECCM02dTs4ilx+ZdLckLDCl\n+uGPN4fQuCKYgXvapg0j3hHj77Q2M42CmJeFroRAgQKBgQDaSQ/xrUKul1o0R1uZ\nH1m44zabw37KaSqOKzsQVCJUvpZhIZCEzR6xxl0b0lqhP4ypv5K4b9rWQArQJcVn\n3mCURVk1uJCFi8g2yZ/rOr3ZCHXoq+dbLOK1++GhUoItT1RvXuI3zUFxBvy2C74/\njCIDd62KeeiS6oixJJy6Tg+Q4wKBgQDO4hg5w35Ed5fH+fSrrweMcYsoqVKdkqOg\nHii1f82zEDHZmPxkdIiL+Q0zjL2HMyePuHvy1FCU25DFreYfeICxqYamQmKVPcpp\nUGnYm9ltwHoDyj4ju72mlqcflDIT87ePX5FN+aaJj1jpk+UbhhV7Or7MQKgI00hA\nUENcqaDWHQKBgGyCGTzoBdfIQPzv4+awIOe5evHfMm3n7VGSx9+MEyzROOu7xZ1e\nYb25f5tO6+JwNrpDEupAICaU20sxG3pQnu3Vs0zzHFRmcfZaL/a80pbKj+JDYdR+\n8YvJVBXfb/qaDrz2C7n1fGx1LrZIDCCGxnm2yjul8ijmEWENdCNgnnhFAoGBAM3X\nadE3cM/AylUfn1CfEvyrEJHBf0Dm4UT0HP8RjWInr+HYdO+ifyX+BCORWhZGUIuQ\nPEtM8mxZ1j7JmtkfNbUPfri3/oyNcXK9nsL1ti2cQAq7VH6LUtSIuvoRoo31hWLy\n7IlP52KhLQ8ipuduzrrQpXxmrIozZoUPFycAY9YFAoGACxO/dhO7sWebLz6rzMLO\nGVl1xWMIdsJMG63jf8dIRgZ21AjvS1NVMPhDfNO6T1eUXBBp3JgCaPqwb0mj9b+R\ng2fsYe2/lsFgHydoqMmvR54ir3/k1KEHejFzw6s7h6ML9kTtSLMECQRirQiGc4EF\ndAH6B0Zq5cRgcgfvuEyI79A=\n-----END PRIVATE KEY-----\n",
+  "client_email": "my-first-project@round-folio-364419.iam.gserviceaccount.com",
+  "client_id": "106862680894691783602",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/my-first-project%40round-folio-364419.iam.gserviceaccount.com"
+}

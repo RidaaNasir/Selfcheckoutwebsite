@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+<style>
+    /* dashboard */
+
+    main {
+        padding: 20px;
+    }
+
+    .summary {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        width: 80%;
+        height: 100%;
+        margin: auto;
+    }
+
+    .summary-card {
+        flex-basis: calc(33.33% - 20px);
+        background-color: #929292;
+        padding: 20px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+        .summary-card h2 {
+            font-size: 20px;
+            color: #333;
+        }
+
+        .summary-card p {
+            font-size: 25px;
+            font-weight: bold;
+            color: #0074cc;
+        }
+
+    .recent-activity {
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+        .recent-activity h2 {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .recent-activity ul {
+            list-style: none;
+            padding: 0;
+        }
+
+            .recent-activity ul li {
+                margin: 10px 0;
+                color: #555;
+            }
+</style>
+
+<!-- Main Content -->
+<main>
+    <div class="content" id="content">
+        <!-- <button class="toggle-sidebar" id="toggle-sidebar">&#9776;</button> -->
+        <h1>Dashboard</h1>
+        <!-- Rest of your admin panel content goes here -->
+        <section class="summary">
+            <div class="summary-card">
+                <h2>Total Products</h2>
+                <p>@(ViewBag.Products != null ? ViewBag.Products.Count : 0)</p>
+            </div>
+            @*<div class="summary-card">
+                    <h2>Total Users</h2>
+                    <p></p>
+                </div>*@
+            <div class="summary-card">
+                <h2>Total Users</h2>
+                <p>@(ViewBag.Totalusers != null ? ViewBag.Totalusers.Count : 0)</p>
+            </div>
+        </section>
+    </div>
+</main>
+
+

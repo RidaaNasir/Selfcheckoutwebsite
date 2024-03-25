@@ -1,0 +1,153 @@
+﻿
+@{
+    ViewBag.Title = "EnterBarcode";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* CSS Reset */
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    /* smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* CSS Variables */
+    :root {
+        --navbae-height: 59px;
+    }
+    /* Navigation Bar */
+    #navbar {
+        display: flex;
+        align-items: center;
+        position: relative;
+        top: 0px;
+    }
+    /* Navigation Bar: logo and image  */
+    #logo {
+        height: 56px;
+        margin: 34px 45px;
+    }
+
+        #logo img {
+            height: 82px;
+            margin: -13px -31px;
+        }
+    /* Navigation Bar: list styling */
+    #navbar ul {
+        display: flex;
+    }
+
+    #navbar::before {
+        content: "";
+        background-color: black;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        opacity: 0.7;
+    }
+
+    #navbar ul li {
+        /* display: flex; */
+        list-style: none;
+        font-size: 1.3rem;
+    }
+
+        #navbar ul li a {
+            color: black;
+            display: block;
+            padding: 3px 22px;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+
+            #navbar ul li a:hover {
+                color: black;
+                background-color: white;
+            }
+
+
+    /* box */
+    .box {
+        border: 1px solid #ccc;
+        padding: 30px 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        margin: 25px 400px;
+    }
+
+    input {
+        width: 100%;
+        padding: 9px;
+        margin-bottom: 10px;
+        border: 1px solid #130d0d;
+        border-radius: 10px;
+    }
+
+    #button {
+        padding: 10px 52px;
+        border: 2px solid white;
+        background-color: rgb(147, 38, 147);
+        color: white;
+        margin: 17px;
+        font-size: 1rem;
+        border-radius: 35px;
+        cursor: pointer;
+    }
+
+        #button:hover {
+            background-color: rgb(74, 2, 74);
+        }
+
+    .box img {
+        padding: 23px 23px;
+        height: 100%;
+        width: 50%;
+    }
+
+
+</style>
+
+
+
+<div class="box">
+
+    <form action="/FirstPage/ScanView" method="Post">
+        @*when button clicked , it will take me to the first page controller and on the Scan View class *@
+
+        @*this is the 'itemcode' we are inserting inside through the camera, this this take us to the item code whcih is inside the model class 'searchproducts' *@
+
+        <h2>Insert Barcode</h2>
+        <img src="~/img/pngwing.com (3).png" alt="noimg" />
+        <input type="number" name="Item_Code" id="barcodereader" placeholder="Enter barcode number">
+        <button>Done</button>
+        <button>Cancel</button>
+        <a href="@Url.Action("ScanEnter", "FirstPage")">
+            <button id="button">Cancel</button>
+        </a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

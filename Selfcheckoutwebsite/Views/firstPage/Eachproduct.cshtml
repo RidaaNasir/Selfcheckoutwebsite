@@ -1,0 +1,137 @@
+﻿@{
+    ViewBag.Title = "Eachproduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Selfcheckoutwebsite.Models.Makeproducts
+
+<style>
+    /* Your existing styles */
+    .modal {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+        margin: 0 auto; /* Center the modal horizontally */
+        margin-top: 20px; /* Add some top margin for spacing */
+    }
+
+    .product-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+
+    .product-details {
+        margin-bottom: 20px;
+    }
+
+    .barcode, .quantity, .product-name, .product-price {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .barcode {
+        color: #555;
+    }
+
+    .product-name {
+        font-weight: bold;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .add-to-cart-button, .cancel-button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        color: white;
+    }
+
+    .add-to-cart-button {
+        background-color: purple;
+    }
+
+    .cancel-button {
+        background-color: purple;
+    }
+
+    .button-container button:hover {
+        background-color: rgb(78, 2, 78);
+    }
+</style>
+
+</head>
+<body>
+    <div class="modal">
+        <img src="product-image.jpg" alt="Product Image" class="product-image">
+        <div class="product-details">
+            <div class="barcode">Barcode: @Model.Item_Code</div>
+            <div class="product-name">Product Name: @Model.Product_Name</div>
+            <div class="quantity">
+                Quantity: <input type="number" id="quantityInput" value="1" min="1" oninput="updateTotalPrice()" />
+            </div>
+            <div class="product-price">
+                Price: <span id="unitPrice">@Model.Unit_Price </span>
+            </div>
+            <div class="product-price">
+                Total Price: <span id="totalPrice">@Model.Unit_Price </span>
+            </div>
+        </div>
+        <div class="button-container">
+            <button class="add-to-cart-button" data-product-name="@Model.Product_Name" data-barcode="@Model.Item_Code" onclick="addToCart()">Add to Cart</button>
+            <button class="cancel-button" onclick="cancel()">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        function updateTotalPrice() {
+            const quantity = document.getElementById('quantityInput').value;
+            const unitPrice = parseFloat("@Model.Unit_Price"); // Assuming this is a numeric value, adjust if necessary
+            const totalPriceElement = document.getElementById('totalPrice');
+
+            if (quantity >= 1) {
+                const totalPrice = (quantity * unitPrice).toFixed(2); // Calculate total price and round to 2 decimal places
+                totalPriceElement.textContent = totalPrice;
+            }
+        }
+
+        function addToCart() {
+            const productName = event.target.getAttribute('data-product-name');
+            const barcode = event.target.getAttribute('data-barcode');
+            const quantity = document.getElementById('quantityInput').value;
+            const unitPrice = parseFloat("@Model.Unit_Price");
+            const totalPrice = (quantity * unitPrice).toFixed(2);
+
+            if (quantity < 1) {
+                alert('Please enter a valid quantity.');
+                return;
+            }
+
+            const product = { productName, barcode, quantity, price: unitPrice, totalPrice };
+
+            let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+            cart.push(product);
+            sessionStorage.setItem('cart', JSON.stringify(cart));
+
+            alert('Product added to cart!');
+            window.location.href = "/FirstPage/Continuecheckout";
+        }
+
+        function cancel() {
+            window.location.href = "ScanEnter/FirstPage";
+        }
+
+        // Initial update of total price when the page loads
+        updateTotalPrice();
+    </script>
+</body>
+</html>

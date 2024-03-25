@@ -1,0 +1,182 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Checkout | MySelf-Checkout.com</title>
+    @*<link rel="~/stylesheet" href="~/css/firstpage.css">*@
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: purple;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+
+            .navbar h1 {
+                margin: 0;
+                padding: 0;
+                flex-grow: 1;
+                text-align: center;
+            }
+
+        #sidebar {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            height: 100%;
+            width: 250px;
+            background-color: rgb(62, 1, 62);
+            overflow-y: auto;
+            transition: left 0.3s;
+        }
+
+
+            #sidebar ul {
+                list-style: none;
+                padding: 0;
+            }
+            /* #side-bar ul:hover{
+            color: black;
+            background-color: white;
+        } */
+
+            #sidebar li {
+                padding: 10px;
+            }
+
+                #sidebar li:hover {
+                    /* color: black; */
+                    background-color: white;
+                }
+
+            #sidebar a {
+                text-decoration: none;
+                color: #fff;
+                display: block;
+            }
+
+                #sidebar a:hover {
+                    color: black;
+                    background-color: white;
+                }
+
+        #toggle-sidebar,
+        #close-sidebar {
+            background-color: purple;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+            #toggle-sidebar:hover,
+            #close-sidebar:hover {
+                background-color: rgb(9, 0, 9);
+            }
+
+        /* submenu */
+
+        .submenu {
+            display: none;
+            background-color: #444;
+            padding-left: 20px;
+        }
+
+            .submenu li a {
+                color: #fff;
+                text-decoration: none;
+                padding: 5px 0;
+                display: block;
+            }
+
+        /* Styles to show sub-menu on hover */
+        .sidebar ul li:hover .submenu {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <button id="toggle-sidebar">&#9776;</button>
+        <h1>Welcome Admin</h1>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+
+    <footer>
+        <div class="center">
+            Copyright &copy;www.MySelfCheckout.com. All rights reserved
+        </div>
+    </footer>
+
+    <!-- Sidebar -->
+    <aside id="sidebar">
+        <button id="close-sidebar">&times;</button>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <!-- <li><a href="#">Transactions</a></li> -->
+            <li><a href="items" class="toggle">Products</a></li>
+
+            <ul class="submenu">
+                <li><a href="#">Add Products</a></li>
+                <!-- <li><a href="#">Update Products</a></li>
+                <li><a href="#">Delete Products</a></li> -->
+            </ul>
+            @*<li class="item"><a href="#">Users</a></li>*@
+            <li class="item"><a href="@Url.Action("Users","Home")">Users</a></li>
+            <li class="item"><a href="@Url.Action("Inventory","Home")">Inventory</a></li>
+            <li class="@Url.Action("AddProducts","Home")"><a href="#">Settings</a></li>
+            <li class="item"><a href="#">Logout</a></li>
+        </ul>
+    </aside>
+
+
+    <!-- <script src="script.js"></script> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleSidebarButton = document.getElementById('toggle-sidebar');
+            const closeSidebarButton = document.getElementById('close-sidebar');
+            const sidebar = document.getElementById('sidebar');
+            const content = document.querySelector('.content');
+            // const subMenus = document.querySelectorAll('.submenu');
+
+
+
+            toggleSidebarButton.addEventListener('click', function () {
+                sidebar.style.left = '0';
+            });
+
+            closeSidebarButton.addEventListener('click', function () {
+                sidebar.style.left = '-250px';
+            });
+            const toggleLinks = document.querySelectorAll('.toggle');
+
+            toggleLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const submenu = link.nextElementSibling;
+                    submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+

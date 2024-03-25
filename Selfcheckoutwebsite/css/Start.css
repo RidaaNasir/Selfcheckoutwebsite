@@ -1,0 +1,68 @@
+﻿
+#home{
+    display: flex;
+    flex-direction: column;
+    padding: 33px 183px;
+    height: 347px;
+    justify-content: center;
+    align-items: center;
+}
+
+#home::before {
+    content: "";
+    background-color: white;
+    position: absolute;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.77;
+    /* background-image: url("img/rahul-chakraborty-xsGxhtAsfSA-unsplash.jpg") */
+}
+
+#home h1 {
+    color: black;
+    text-align: center;
+    padding: 6px 47px;
+}
+
+#home p {
+    color: black;
+    text-align: center;
+    font: 115%;
+    font-family: 'Times New Roman', Times, serif
+}
+
+/*footer {
+    background-color: black;
+    color: white;
+    padding: 9px 20px;
+}*/
+/* Utility Classes */
+.h-primary {
+    font-size: 2.8rem;
+    padding: 33px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#button {
+    padding: 17px 161px;
+    border: 2px solid white;
+    background-color: rgb(147, 38, 147);
+    color: white;
+    margin: 17px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 39px;
+}
+
+    #button :hover {
+        color: mediumpurple;
+    }
+
+#home img {
+    height: 55%;
+    padding: 0px 1px;
+}
+

@@ -1,0 +1,174 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+    /* CSS Reset */
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    /* smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* CSS Variables */
+    :root {
+        --navbae-height: 59px;
+    }
+    /* Navigation Bar */
+    #navbar {
+        display: flex;
+        align-items: center;
+        position: relative;
+        top: 0px;
+    }
+    /* Navigation Bar: logo and image  */
+    #logo {
+        height: 56px;
+        margin: 34px 45px;
+    }
+
+        #logo img {
+            height: 82px;
+            margin: -13px -31px;
+        }
+    /* Navigation Bar: list styling */
+    #navbar ul {
+        display: flex;
+    }
+
+    #navbar::before {
+        content: "";
+        background-color: black;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        opacity: 0.7;
+    }
+
+    #navbar ul li {
+        /* display: flex; */
+        list-style: none;
+        font-size: 1.3rem;
+    }
+
+        #navbar ul li a {
+            color: black;
+            display: block;
+            padding: 3px 22px;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+
+            #navbar ul li a:hover {
+                color: black;
+                background-color: white;
+            }
+
+    /* HOME SECTION */
+    #home {
+        /* display: flex;
+    flex-direction: column;
+    padding: 54px 200px;
+    height: 330px;
+    justify-content: center;
+    align-items: center; */
+
+        display: flex;
+        flex-direction: column;
+        padding: 33px 183px;
+        height: 347px;
+        justify-content: center;
+        align-items: center;
+    }
+
+        #home::before {
+            content: "";
+            background-color: white;
+            position: absolute;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            z-index: -1;
+            opacity: 0.77;
+            /* background-image: url("img/rahul-chakraborty-xsGxhtAsfSA-unsplash.jpg") */
+        }
+
+        #home h1 {
+            color: black;
+            text-align: center;
+            padding: 6px 47px;
+        }
+
+        #home p {
+            color: black;
+            text-align: center;
+            font: 115%;
+            font-family: 'Times New Roman', Times, serif
+        }
+
+    footer {
+        background-color: black;
+        color: white;
+        padding: 9px 20px;
+    }
+    /* Utility Classes */
+    .h-primary {
+        font-size: 2.8rem;
+        padding: 33px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    #button {
+        padding: 17px 161px;
+        border: 2px solid white;
+        background-color: rgb(147, 38, 147);
+        color: white;
+        margin: 17px;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 39px;
+    }
+
+        #button :hover {
+            color: mediumpurple;
+        }
+
+    #home img {
+        height: 55%;
+        padding: 0px 1px;
+    }
+</style>
+
+<body>
+
+    <p></p>
+    <!-- body -->
+    <section id="home">
+        <h1 class="h-primary">Welcome to Self-Checkout</h1>
+        <img src="../img/scango.jpg" alt="noimg">
+        <p>Say Goodbye to long queues and waiting times. With Self-Checkout you can breeze through </p>
+        <p>your shopping, scan items and complete your purchase in a fraction of time</p>
+        @*<button id="btn">Get Started</button>*@
+
+        @* button hover *@
+
+        <a href="@Url.Action("signlogView", "firstPageController")">
+            <button id="button">Get started</button>
+        </a>
+
+    </section>
+</body>
+</html>
+

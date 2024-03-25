@@ -1,0 +1,210 @@
+﻿
+@{
+    ViewBag.Title = "about";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+
+    /** {*/
+        /*margin: 0px;
+        padding: 0px;*/
+        /*box-sizing: border-box;
+        font-family: 'Roboto',sans-serif;
+    }*/
+
+    /*body {
+        background-color: #f2f2f2;
+    }*/
+
+    .heading {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        margin: 20px auto;
+    }
+
+        .heading h1 {
+            font-size: 50px;
+            columns: #000;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+            .heading h1::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 4px;
+                display: block;
+                margin: 0 auto;
+                background-color: #4caf50;
+            }
+
+        .heading p {
+            font-size: 17px;
+            color: #666;
+            margin-bottom: 35px;
+        }
+
+    .container {
+        width: 90%;
+        margin: 0 auto;
+        padding: 10px 20px;
+    }
+
+    .about {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    img {
+        display: flex;
+        width: 25%;
+        margin: 20px;
+        align-items: left;
+        float:right;
+    }
+
+    .about-image {
+        flex: 1;
+        margin-right: 40px;
+        overflow: hidden;
+    }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            transition: 0.5s ease;
+        }
+
+        .about_image:hover img {
+            transform: scale(1.2);
+        }
+
+    .about-content {
+        flex: 1;
+    }
+
+        .about-content h2 {
+
+            font-size: 23px;
+            margin-bottom: 15px;
+            color: #333;
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            justify-content: flex-end;
+        }
+
+        .about-content p {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #666;
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            justify-content: flex-end;
+        }
+        .about{
+            display:grid;
+            grid-template-columns:repeat(1,1fr);
+            align-items:center;
+            
+        }
+        .about_image{
+            float:right;
+        }
+
+    /* Existing styles... */
+
+    .about {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .about-image {
+        flex: 1;
+        margin-right: 40px;
+        overflow: hidden;
+    }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            transition: 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.2);
+        }
+
+    .about-content {
+        flex: 1;
+    }
+
+        .about-content h2,
+        .about-content p {
+            font-size: 23px;
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .about-content h2 {
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            justify-content: flex-start; /* Align text to the left */
+        }
+
+        .about-content p {
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            justify-content: flex-start; /* Align text to the left */
+        }
+
+    .about {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        gap: 20px; /* Adjust the gap between image and text */
+    }
+
+    .about_img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: auto;
+        width:60%;
+    }
+
+
+</style>
+<div class="heading">
+    <h1>About Us</h1>
+    <div class="container">
+        <section class="about">
+            <img class="about_img" src="~/img/aboutusimg.jpg" />
+            <div class="about-content">
+                <h2>"Streamline Your Shopping with Our Convenient Self-Checkout Solution!</h2>
+                <p>
+                    At Self-Checkout, we are on a mission to revolutionize the way you shop. Our goal is to provide a
+                    seamless, efficient, and user-friendly self-checkout experience that puts you in control of your shopping journey.
+                    We understand the importance of convenience in today's fast-paced world, and our self-checkout solutions are designed
+                    to make your shopping experience as smooth as possible.
+                </p>
+                @*<img class="about_img" src="~/img/grocery store .jpg" />*@
+            </div>
+        </section>
+    </div>
+</div>
+

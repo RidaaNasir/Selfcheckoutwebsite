@@ -1,0 +1,57 @@
+﻿/* services */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+#services {
+    margin: 34px;
+    display: flex;
+}
+
+    #services .box {
+        border: 5px solid rgb(0, 0, 0);
+        padding: 0px 1px;
+        margin: -21px 14px;
+        border-radius: 30px;
+        background: #8b728f;
+    }
+
+        #services.box img {
+            margin: auto;
+            /* height: 200px; */
+            display: block;
+            width: 20%;
+        }
+
+.box img {
+    display: block;
+    margin: auto;
+    width: 30%;
+    height:auto;
+}
+
+#services.box p {
+    font-size: 2.3rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.h-secondary {
+    font-size: 2rem;
+    padding: 3px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 10px;
+}
+/* services center */
+
+
+.h-primary {
+    font-size: 3rem;
+    padding: 12px;
+    display: block;
+    margin: auto;
+}
+

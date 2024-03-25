@@ -1,0 +1,126 @@
+﻿@{
+    ViewBag.Title = "Bill";
+    Layout = null;
+}
+
+<style>
+    /* Your existing styles */
+
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    h1 {
+        text-align: center;
+        background-color: purple;
+        height: 77px;
+        font-size: 60px;
+        margin: -19px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #9b9595;
+        font-size: 18px;
+    }
+
+    .footer {
+        text-align: right;
+    }
+
+    .total {
+        font-weight: bold;
+    }
+
+    .Paymenttype {
+        font-weight: bold;
+    }
+
+    h2 {
+        text-align: right;
+    }
+
+    #cart-total {
+        display: inline-block;
+        background-color: #f2f2f2;
+        padding: 0px 1px;
+        border-radius: 5px;
+        margin-right: 9px;
+    }
+
+    #cart-items {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    .goodbye h3 {
+        color: dimgray;
+        background-color: blanchedalmond;
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #f0f0f0;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        text-align: center;
+        background-color: palegreen;
+    }
+</style>
+
+<h1>Invoice</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Barcode Number</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+        </tr>
+    </thead>
+    <tbody id="cart-items"></tbody>
+</table>
+
+<div class="footer">
+    <p class="total">Total Price: <span id="cart-total"></span> kwd</p>
+    <p class="Paymenttype">Payment Type: @ViewBag.PaymentMethod </p>
+</div>
+
+<div class="goodbye">
+    <h3> THANK YOU FOR SHOPPING </h3>
+</div>
+
+<script>
+    function updateInvoiceTable() {
+        const invoiceTable = document.getElementById('cart-items');
+        const invoiceTotalElement = document.getElementById('cart-total');
+
+        invoiceTable.innerHTML = '';
+        const cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+        let total = 0;
+
+        cart.forEach(item => {
+            const newRow = invoiceTable.insertRow();
+            const totalPrice = (parseFloat(item.price) * parseInt(item.quantity)).toFixed(2);
+            newRow.innerHTML = `<td>${item.productName}</td><td>${item.barcode}</td><td>${item.quantity}</td><td>${totalPrice}</td>`;
+            total += parseFloat(totalPrice);
+        });
+
+        invoiceTotalElement.innerText = total.toFixed(2);
+    }
+
+    updateInvoiceTable();
+</script>
