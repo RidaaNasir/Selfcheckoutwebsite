@@ -6,4 +6,9 @@ the shopping experience by enabling users to conveniently purchase items online 
 <p>Frontend: HTML, CSS, JavaScript
 <br/>
 Backend: SQL Server(database), C#, JavaScript
+  <br/>
+framework: ASP.Net (MVC) 
+<br/>
+Platform: Visual Studio 2019
 </p>
+
